@@ -1,0 +1,35 @@
+<section>
+    <div class="SignUp">
+        <form #createOwnerform="ngForm" (ngSubmit)="createOwner(createOwnerform.value);" align="center">
+            <h3>SignUp</h3>
+            <label for="ownerId"></label>
+            <input type="text" id="ownerId" placeholder="Owner Id" required class="form-control" ngModel name="ownerId" #oi="ngModel">
+            <ng-container *ngIf="oi.touched">
+                <p class="error-msg" *ngIf="oi.errors?.['required']"> 4 digit only</p>
+
+            </ng-container>
+
+            <label for="ownerName"></label>
+            <input type="text" id="ownerName" placeholder="Enter Name" required class="form-control" ngModel name="ownerName" #on="ngModel">
+            <ng-container *ngIf="on.touched">
+                <p class="error-msg" *ngIf="on.errors?.['required']"> Owner name is required</p>
+
+            </ng-container>
+
+            <label for="ownerPassword"></label>
+            <input type="password" id="ownerPassword" placeholder="Password" required class="form-control " ngModel name="ownerPassword" #op="ngModel">
+            <ng-container *ngIf="op.touched">
+                <p class="error-msg" *ngIf="op.errors?.['required']"> Owner password is required</p>
+
+            </ng-container>
+            <br>
+            <button type="submit" value="submit">Submit</button><br><br>
+            <div>
+                <label>Already a member?</label>
+                <button class="btn" (click)="onsubmit()">Go to Login</button>
+            </div>
+        </form>
+    </div>
+
+
+</section>
